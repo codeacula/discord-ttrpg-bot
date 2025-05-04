@@ -5,7 +5,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
     <PackageReference Include="NetCord" Version="1.0.0-alpha.365" />
+    <PackageReference Include="NetCord.Hosting" Version="1.0.0-alpha.365" />
   </ItemGroup>
 
   <PropertyGroup>
