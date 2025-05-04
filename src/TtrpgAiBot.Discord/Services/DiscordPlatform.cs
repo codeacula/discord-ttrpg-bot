@@ -1,7 +1,9 @@
-namespace TtrpgAiBot.Discord;
+namespace TtrpgAiBot.Discord.Service;
 
 using Microsoft.Extensions.Logging;
 using TtrpgAiBot.Core.Platform;
+using TtrpgAiBot.Discord.Config;
+using TtrpgAiBot.Discord.Infrastructure;
 
 public class DiscordPlatform(DiscordConfig discordConfig, ILogger<DiscordPlatform> logger, DiscordGateway discordGateway) : IPlatformIntegration
 {

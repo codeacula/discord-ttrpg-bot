@@ -1,7 +1,10 @@
-namespace TtrpgAiBot.Discord;
+namespace TtrpgAiBot.Discord.Extensions;
 
 using Microsoft.Extensions.DependencyInjection;
 using TtrpgAiBot.Core.Platform;
+using TtrpgAiBot.Discord.Config;
+using TtrpgAiBot.Discord.Infrastructure;
+using TtrpgAiBot.Discord.Service;
 
 public static class ServiceExtensions
 {

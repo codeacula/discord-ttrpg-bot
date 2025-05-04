@@ -1,4 +1,4 @@
-namespace TtrpgAiBot.Discord;
+namespace TtrpgAiBot.Discord.Config;
 
 public record DiscordConfig
 {

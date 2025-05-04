@@ -1,4 +1,6 @@
 using TtrpgAiBot.Discord;
+using TtrpgAiBot.Discord.Config;
+using TtrpgAiBot.Discord.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

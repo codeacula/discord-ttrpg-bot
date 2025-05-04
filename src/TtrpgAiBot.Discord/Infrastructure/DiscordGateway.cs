@@ -1,9 +1,10 @@
-namespace TtrpgAiBot.Discord;
+namespace TtrpgAiBot.Discord.Infrastructure;
 
 using NetCord;
 using NetCord.Gateway;
 using NetCord.Rest;
 using TtrpgAiBot.Core.Platform;
+using TtrpgAiBot.Discord.Config;
 
 public class DiscordGateway(DiscordConfig discordConfig) : IPlatformIntegration
 {
