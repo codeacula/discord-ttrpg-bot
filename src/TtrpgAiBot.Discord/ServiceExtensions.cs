@@ -1,7 +1,6 @@
 namespace TtrpgAiBot.Discord;
 
 using Microsoft.Extensions.DependencyInjection;
-using NetCord.Hosting.Gateway;
 
 public static class ServiceExtensions
 {
@@ -10,13 +9,15 @@ public static class ServiceExtensions
   /// </summary>
   /// <param name="services">The service collection to add to.</param>
   /// <returns>The updated service collection.</returns>
-  public static IServiceCollection AddTtrpgAiBotDiscord(this IServiceCollection services)
+  public static async Task<IServiceCollection> AddDiscord(
+    this IServiceCollection services,
+    DiscordConfig discordConfig)
   {
-    // Register your Discord bot services here.
-    // Example:
-    // services.AddSingleton<IDiscordBotService, DiscordBotService>();
-    services.AddDiscordGateway();
+    var discordGateway = new DiscordGateway(discordConfig);
+    await discordGateway.StartAsync();
 
+    
+    services.AddSingleton(discordGateway);
     return services;
   }
 }

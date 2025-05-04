@@ -1,6 +1,17 @@
+using Microsoft.Extensions.Logging;
 using TtrpgAiBot.Discord;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure logging from configuration (appsettings.json, etc.)
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+
+// builder.Configuration.
+builder.Configuration.AddUserSecrets<Program>()
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -27,22 +38,42 @@ builder.Services.AddVersionedApiExplorer(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configs
+builder.Services.Configure<DiscordConfig>(builder.Configuration.GetSection("DiscordConfig"));
+
+// Safely bind DiscordConfig and handle missing config
+var discordConfigSection = builder.Configuration.GetSection("DiscordConfig");
+var discordConfig = discordConfigSection.Get<DiscordConfig>() ?? throw new InvalidOperationException("DiscordConfig section is missing or invalid in configuration.");
+
 // Add domain services
-builder.Services.AddTtrpgAiBotDiscord();
+await builder.Services.AddDiscord(discordConfig);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-app.UseSwagger();
-app.UseSwaggerUI();
+// Get logger instance
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
 
-if (app.Environment.IsDevelopment())
+try
 {
-    app.MapOpenApi();
+    logger.LogInformation("Starting TTRPG AI Bot API...");
+    // Configure the HTTP request pipeline.
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.MapControllers();
+
+    app.Run();
+    logger.LogInformation("TTRPG AI Bot API stopped gracefully.");
 }
-
-app.UseHttpsRedirection();
-
-app.MapControllers();
-
-app.Run();
+catch (Exception ex)
+{
+    logger.LogCritical(ex, "TTRPG AI Bot API terminated unexpectedly.");
+    throw;
+}
