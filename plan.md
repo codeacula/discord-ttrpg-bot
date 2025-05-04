@@ -16,4 +16,7 @@ Games supported:
 
 - `/docs`: Documentation for the bot
 - `/src`: Source code for the bot
+  - `/src/DiscordTtrpgBot.Api`: The API for the bot
+  - `/src/DiscordTtrpgBot.Core`: The core logic for the bot
+  - `/src/DiscordTtrpgBot.Discord`: The Discord client for the bot
 - `/tests`: Unit tests for the bot

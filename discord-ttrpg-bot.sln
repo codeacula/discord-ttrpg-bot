@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Api", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Core", "src\DiscordTtrpgBot.Core\DiscordTtrpgBot.Core.csproj", "{6FAEE6A3-B628-4B14-939E-385B24A9440C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Discord", "src\DiscordTtrpgBot.Discord\DiscordTtrpgBot.Discord.csproj", "{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Domain", "src\DiscordTtrpgBot.Domain\DiscordTtrpgBot.Domain.csproj", "{D64E152B-99E7-4C22-B8D9-0F39355D16F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,30 @@ Global
 		{6FAEE6A3-B628-4B14-939E-385B24A9440C}.Release|x64.Build.0 = Release|Any CPU
 		{6FAEE6A3-B628-4B14-939E-385B24A9440C}.Release|x86.ActiveCfg = Release|Any CPU
 		{6FAEE6A3-B628-4B14-939E-385B24A9440C}.Release|x86.Build.0 = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Debug|x86.Build.0 = Debug|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|x64.Build.0 = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}.Release|x86.Build.0 = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x64.Build.0 = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +78,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{41B8D98A-9F19-45C0-A18A-4B4CDBF03B17} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{6FAEE6A3-B628-4B14-939E-385B24A9440C} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{D64E152B-99E7-4C22-B8D9-0F39355D16F7} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal
