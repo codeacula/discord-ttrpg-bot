@@ -9,9 +9,9 @@ public class DiscordPlatform(DiscordConfig discordConfig, ILogger<DiscordPlatfor
   private readonly ILogger<DiscordPlatform> _logger = logger;
   private readonly DiscordGateway _discordGateway = discordGateway;
 
-  public void SendMessage(string message)
+  public async Task SendMessageAsync(string message)
   {
 
-    _discordGateway.SendMessage(message);
+    await _discordGateway.SendMessageAsync(message);
   }
 }

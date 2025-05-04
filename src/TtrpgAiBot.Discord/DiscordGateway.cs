@@ -3,12 +3,13 @@ namespace TtrpgAiBot.Discord;
 using NetCord;
 using NetCord.Gateway;
 using NetCord.Rest;
+using TtrpgAiBot.Core.Platform;
 
-public class DiscordGateway(DiscordConfig discordConfig)
+public class DiscordGateway(DiscordConfig discordConfig) : IPlatformIntegration
 {
-  private readonly GatewayClient _gatewayClient = new(new BotToken(discordConfig.Token));
+  private readonly GatewayClient _gatewayClient = new(new BotToken(discordConfig.ClientSecret));
 
-  public async Task SendMessage(string text)
+  public async Task SendMessageAsync(string text)
   {
 
     MessageProperties message = new();

@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Logging;
 using TtrpgAiBot.Discord;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,14 +38,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Configs
-builder.Services.Configure<DiscordConfig>(builder.Configuration.GetSection("DiscordConfig"));
+var discordConfigSection = builder.Configuration.GetSection("TtrpgAiBot:Platforms:Discord");
+builder.Services.Configure<DiscordConfig>(discordConfigSection);
 
 // Safely bind DiscordConfig and handle missing config
-var discordConfigSection = builder.Configuration.GetSection("DiscordConfig");
 var discordConfig = discordConfigSection.Get<DiscordConfig>() ?? throw new InvalidOperationException("DiscordConfig section is missing or invalid in configuration.");
 
 // Add domain services
 await builder.Services.AddDiscord(discordConfig);
+builder.Services.AddSingleton(discordConfig);
+builder.Services.AddBot();
 
 var app = builder.Build();
 

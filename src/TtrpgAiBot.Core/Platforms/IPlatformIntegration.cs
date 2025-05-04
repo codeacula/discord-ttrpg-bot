@@ -6,5 +6,5 @@ public interface IPlatformIntegration
     /// Sends a message to the platform.
     /// </summary>
     /// <param name="message">The message to send.</param>
-    void SendMessage(string message);
+    Task SendMessageAsync(string message);
 }
