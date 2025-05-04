@@ -1,0 +1,1 @@
+namespace TtrpgAiBot.Core.Platform;

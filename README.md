@@ -1,1 +1,1 @@
-# discord-ttrpg-bot
+# TTRPG AI

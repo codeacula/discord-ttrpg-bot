@@ -1,4 +1,4 @@
-using DiscordTtrpgBot.Discord;
+using TtrpgAiBot.Discord;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +28,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add domain services
-builder.Services.AddDiscordTtrpgBotDiscord();
+builder.Services.AddTtrpgAiBotDiscord();
 
 var app = builder.Build();
 

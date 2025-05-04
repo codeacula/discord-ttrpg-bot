@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\DiscordTtrpgBot.Core\DiscordTtrpgBot.Core.csproj" />
+    <ProjectReference Include="..\TtrpgAiBot.Core\TtrpgAiBot.Core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

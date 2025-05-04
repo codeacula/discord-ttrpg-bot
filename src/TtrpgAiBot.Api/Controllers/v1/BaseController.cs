@@ -1,4 +1,4 @@
-namespace DiscordTtrpgBot.Api.Controllers.v1;
+namespace TtrpgAiBot.Api.Controllers.v1;
 
 using Microsoft.AspNetCore.Mvc;
 

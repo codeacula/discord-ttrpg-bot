@@ -5,13 +5,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Api", "src\DiscordTtrpgBot.Api\DiscordTtrpgBot.Api.csproj", "{41B8D98A-9F19-45C0-A18A-4B4CDBF03B17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtrpgAiBot.Api", "src\TtrpgAiBot.Api\TtrpgAiBot.Api.csproj", "{41B8D98A-9F19-45C0-A18A-4B4CDBF03B17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Core", "src\DiscordTtrpgBot.Core\DiscordTtrpgBot.Core.csproj", "{6FAEE6A3-B628-4B14-939E-385B24A9440C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtrpgAiBot.Core", "src\TtrpgAiBot.Core\TtrpgAiBot.Core.csproj", "{6FAEE6A3-B628-4B14-939E-385B24A9440C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Discord", "src\DiscordTtrpgBot.Discord\DiscordTtrpgBot.Discord.csproj", "{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtrpgAiBot.Discord", "src\TtrpgAiBot.Discord\TtrpgAiBot.Discord.csproj", "{2776EFF4-EF20-4F29-82D8-5B75CFE7767F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordTtrpgBot.Domain", "src\DiscordTtrpgBot.Domain\DiscordTtrpgBot.Domain.csproj", "{D64E152B-99E7-4C22-B8D9-0F39355D16F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtrpgAiBot.Domain", "src\TtrpgAiBot.Domain\TtrpgAiBot.Domain.csproj", "{D64E152B-99E7-4C22-B8D9-0F39355D16F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtrpgAiBot.Bot", "src\TtrpgAiBot.Bot\TtrpgAiBot.Bot.csproj", "{4477ED2B-39AC-473E-8D94-6E8878E25062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,18 @@ Global
 		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x64.Build.0 = Release|Any CPU
 		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{D64E152B-99E7-4C22-B8D9-0F39355D16F7}.Release|x86.Build.0 = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|x64.Build.0 = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Debug|x86.Build.0 = Debug|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|x64.ActiveCfg = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|x64.Build.0 = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|x86.ActiveCfg = Release|Any CPU
+		{4477ED2B-39AC-473E-8D94-6E8878E25062}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +94,6 @@ Global
 		{6FAEE6A3-B628-4B14-939E-385B24A9440C} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{2776EFF4-EF20-4F29-82D8-5B75CFE7767F} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{D64E152B-99E7-4C22-B8D9-0F39355D16F7} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{4477ED2B-39AC-473E-8D94-6E8878E25062} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal

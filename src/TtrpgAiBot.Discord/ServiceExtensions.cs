@@ -1,4 +1,4 @@
-namespace DiscordTtrpgBot.Discord;
+namespace TtrpgAiBot.Discord;
 
 using Microsoft.Extensions.DependencyInjection;
 using NetCord.Hosting.Gateway;
@@ -10,7 +10,7 @@ public static class ServiceExtensions
   /// </summary>
   /// <param name="services">The service collection to add to.</param>
   /// <returns>The updated service collection.</returns>
-  public static IServiceCollection AddDiscordTtrpgBotDiscord(this IServiceCollection services)
+  public static IServiceCollection AddTtrpgAiBotDiscord(this IServiceCollection services)
   {
     // Register your Discord bot services here.
     // Example:
