@@ -1,7 +1,7 @@
+namespace DiscordTtrpgBot.Discord;
+
 using Microsoft.Extensions.DependencyInjection;
 using NetCord.Hosting.Gateway;
-
-namespace DiscordTtrpgBot.Discord;
 
 public static class ServiceExtensions
 {

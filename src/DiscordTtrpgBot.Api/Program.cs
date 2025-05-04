@@ -1,3 +1,5 @@
+using DiscordTtrpgBot.Discord;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -24,6 +26,9 @@ builder.Services.AddVersionedApiExplorer(options =>
 // Add Swagger generation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add domain services
+builder.Services.AddDiscordTtrpgBotDiscord();
 
 var app = builder.Build();
 

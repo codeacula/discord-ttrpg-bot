@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DiscordTtrpgBot.Core\DiscordTtrpgBot.Core.csproj" />
+    <ProjectReference Include="..\DiscordTtrpgBot.Discord\DiscordTtrpgBot.Discord.csproj" />
   </ItemGroup>
 
 </Project>
