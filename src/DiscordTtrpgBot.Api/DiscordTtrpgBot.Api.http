@@ -1,0 +1,6 @@
+@DiscordTtrpgBot.Api_HostAddress = http://localhost:5054
+
+GET {{DiscordTtrpgBot.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
