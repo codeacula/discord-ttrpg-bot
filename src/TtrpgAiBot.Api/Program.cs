@@ -1,3 +1,4 @@
+using NetCord.Hosting.Services;
 using TtrpgAiBot.Discord;
 using TtrpgAiBot.Discord.Config;
 using TtrpgAiBot.Discord.Extensions;
@@ -55,6 +56,8 @@ var app = builder.Build();
 
 // Get logger instance
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
+
+app.AddModules(typeof(Program).Assembly);
 
 try
 {

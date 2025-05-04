@@ -8,7 +8,10 @@ using TtrpgAiBot.Discord.Config;
 
 public class DiscordGateway(DiscordConfig discordConfig) : IPlatformIntegration
 {
-  private readonly GatewayClient _gatewayClient = new(new BotToken(discordConfig.ClientSecret));
+  public readonly GatewayClient GatewayClient = new(new BotToken(discordConfig.ClientSecret), new GatewayClientConfiguration()
+  {
+      Intents = default,
+  });
 
   public async Task SendMessageAsync(string text)
   {
@@ -20,7 +23,7 @@ public class DiscordGateway(DiscordConfig discordConfig) : IPlatformIntegration
       .WithComponents([]);
 
     // Get the channel as a generic Channel
-    var channel = await _gatewayClient.Rest.GetChannelAsync(1317933225108045834);
+    var channel = await GatewayClient.Rest.GetChannelAsync(1317933225108045834);
     if (channel is TextChannel textChannel)
     {
       await textChannel.SendMessageAsync(message);
@@ -34,6 +37,6 @@ public class DiscordGateway(DiscordConfig discordConfig) : IPlatformIntegration
 
   public async Task StartAsync()
   {
-    await _gatewayClient.StartAsync();
+    await GatewayClient.StartAsync();
   }
 }
