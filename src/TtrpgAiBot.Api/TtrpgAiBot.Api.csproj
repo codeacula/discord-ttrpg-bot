@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Marten" Version="7.40.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
@@ -18,6 +22,10 @@
     <ProjectReference Include="..\TtrpgAiBot.Bot\TtrpgAiBot.Bot.csproj" />
     <ProjectReference Include="..\TtrpgAiBot.Core\TtrpgAiBot.Core.csproj" />
     <ProjectReference Include="..\TtrpgAiBot.Discord\TtrpgAiBot.Discord.csproj" />
+    <ProjectReference Include="..\TtrpgAiBot.Application\TtrpgAiBot.Application.csproj" />
+    <ProjectReference Include="..\TtrpgAiBot.Infrastructure\TtrpgAiBot.Infrastructure.csproj" />
+    <ProjectReference Include="..\TtrpgAiBot.Platform.Discord\TtrpgAiBot.Platform.Discord.csproj" />
+    <ProjectReference Include="..\TtrpgAiBot.Ai\TtrpgAiBot.Ai.csproj" />
   </ItemGroup>
 
 </Project>
