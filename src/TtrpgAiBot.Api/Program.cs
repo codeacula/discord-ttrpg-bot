@@ -1,7 +1,18 @@
 using NetCord.Hosting.Services;
+using TtrpgAiBot.Ai.Config;
+using TtrpgAiBot.Ai.Extensions;
+using TtrpgAiBot.Bot;
 using TtrpgAiBot.Platform.Discord.Config;
 using TtrpgAiBot.Platform.Discord.Extensions;
-using TtrpgAiBot.Bot;
+
+static void AddConfigSection<T>(WebApplicationBuilder builder, string sectionName)
+    where T : class
+{
+  var configSection = builder.Configuration.GetSection(sectionName);
+  builder.Services.Configure<T>(configSection);
+  var config = configSection.Get<T>() ?? throw new InvalidOperationException($"{sectionName} section is missing or invalid in configuration.");
+  builder.Services.AddSingleton(config);
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,16 +35,16 @@ builder.Services.AddControllers();
 // Add API versioning
 builder.Services.AddApiVersioning(options =>
 {
-    options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
-    options.ReportApiVersions = true;
+  options.AssumeDefaultVersionWhenUnspecified = true;
+  options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+  options.ReportApiVersions = true;
 });
 
 // Add versioned API explorer for Swagger
 builder.Services.AddVersionedApiExplorer(options =>
 {
-    options.GroupNameFormat = "'v'VVV";
-    options.SubstituteApiVersionInUrl = true;
+  options.GroupNameFormat = "'v'VVV";
+  options.SubstituteApiVersionInUrl = true;
 });
 
 // Add Swagger generation
@@ -41,19 +52,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Configs
-var discordConfigSection = builder.Configuration.GetSection("TtrpgAiBot:Platforms:Discord");
-builder.Services.Configure<DiscordConfig>(discordConfigSection);
+AddConfigSection<AIConfig>(builder, "TtrpgAiBot:AI");
+AddConfigSection<DiscordConfig>(builder, "TtrpgAiBot:Platforms:Discord");
+
+var aiConfigSection = builder.Configuration.GetSection("TtrpgAiBot:AI");
+builder.Services.Configure<AIConfig>(aiConfigSection);
 
 // Safely bind DiscordConfig and handle missing config
-var discordConfig = discordConfigSection.Get<DiscordConfig>() ?? throw new InvalidOperationException("DiscordConfig section is missing or invalid in configuration.");
-
-builder.Services.AddProblemDetails();
 
 // Add domain services
-await builder.Services.AddDiscordIntegration(discordConfig);
-builder.Services.AddSingleton(discordConfig);
+var discordConfig = builder.Configuration.Get<DiscordConfig>()!;
+await builder.Services.AddDiscordIntegrationAsync(discordConfig);
 
+builder.Services.AddProblemDetails();
 builder.Services.AddBot();
+
+var aiConfig = builder.Configuration.Get<AIConfig>()!;
+builder.Services.AddAiServices(aiConfig);
 
 var app = builder.Build();
 
@@ -64,25 +79,28 @@ app.AddModules(typeof(Program).Assembly);
 
 try
 {
-    logger.LogInformation("Starting TTRPG AI Bot API...");
-    // Configure the HTTP request pipeline.
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  logger.LogInformation("Starting TTRPG AI Bot API...");
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.MapOpenApi();
-    }
+  // Configure the HTTP request pipeline.
+  app.UseSwagger();
+  app.UseSwaggerUI();
 
-    app.UseHttpsRedirection();
+  if (app.Environment.IsDevelopment())
+  {
+    app.MapOpenApi();
+  }
 
-    app.MapControllers();
+  app.UseHttpsRedirection();
 
-    app.Run();
-    logger.LogInformation("TTRPG AI Bot API stopped gracefully.");
+  app.MapGet("/health", () => Results.Ok("Healthy"));
+
+  app.MapControllers();
+
+  app.Run();
+  logger.LogInformation("TTRPG AI Bot API stopped gracefully.");
 }
 catch (Exception ex)
 {
-    logger.LogCritical(ex, "TTRPG AI Bot API terminated unexpectedly.");
-    throw;
+  logger.LogCritical(ex, "TTRPG AI Bot API terminated unexpectedly.");
+  throw;
 }
