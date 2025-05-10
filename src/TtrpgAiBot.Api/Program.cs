@@ -1,7 +1,7 @@
 using NetCord.Hosting.Services;
-using TtrpgAiBot.Discord;
-using TtrpgAiBot.Discord.Config;
-using TtrpgAiBot.Discord.Extensions;
+using TtrpgAiBot.Platform.Discord.Config;
+using TtrpgAiBot.Platform.Discord.Extensions;
+using TtrpgAiBot.Bot;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,9 +47,12 @@ builder.Services.Configure<DiscordConfig>(discordConfigSection);
 // Safely bind DiscordConfig and handle missing config
 var discordConfig = discordConfigSection.Get<DiscordConfig>() ?? throw new InvalidOperationException("DiscordConfig section is missing or invalid in configuration.");
 
+builder.Services.AddProblemDetails();
+
 // Add domain services
-await builder.Services.AddDiscord(discordConfig);
+await builder.Services.AddDiscordIntegration(discordConfig);
 builder.Services.AddSingleton(discordConfig);
+
 builder.Services.AddBot();
 
 var app = builder.Build();

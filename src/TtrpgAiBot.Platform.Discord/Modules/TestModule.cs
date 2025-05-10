@@ -1,6 +1,6 @@
 using NetCord.Services.ApplicationCommands;
 
-namespace TtrpgAiBot.Discord.Modules;
+namespace TtrpgAiBot.Platform.Discord.Modules;
 
 public class TestModule : ApplicationCommandModule<ApplicationCommandContext>
 {
